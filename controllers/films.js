@@ -28,9 +28,14 @@ filmRouter.get('/', function(req, res) {
 // });
 
 // ****POST****(add)
-// filmRouter.post('/', function(req, res) {
-//   films.push(req.body.film);
-//   res.json({data: films});
-// });
+filmRouter.post('/', function(req, res) {
+  var newFilm = {
+    title: req.body.title,
+    actors: req.body.actors
+  };
+  var options = new Film(newFilm);
+  films.push(options);
+  res.json({data: films});
+});
 
 module.exports = filmRouter;
