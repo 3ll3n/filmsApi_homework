@@ -16,16 +16,21 @@ filmRouter.get('/', function(req, res) {
 });
 
 // ****PUT**** (like post in Sinatra)
-// filmRouter.put('/:id', function(req, res) {
-//   films[req.params.id] = req.body.film;
-//   res.json({data: films});
-// });
+filmRouter.put('/:id', function(req, res) {
+  var film = new Film ({
+    title: req.body.title,
+    actors: req.body.actors
+  });
+
+  films[req.params.id] = film;
+  res.json({data: films});
+});
 
 // ****DELETE****
-// filmRouter.delete('/:id', function(req, res) {
-//   films.splice[req.params.id, 1];
-//   res.json({data: films});
-// });
+filmRouter.delete('/:id', function(req, res) {
+  films.splice(req.params.id, 1);
+  res.json({data: films});
+});
 
 // ****POST****(add)
 filmRouter.post('/', function(req, res) {
