@@ -19,7 +19,8 @@ filmRouter.get('/', function(req, res) {
 filmRouter.put('/:id', function(req, res) {
   var film = new Film ({
     title: req.body.title,
-    actors: req.body.actors
+    actors: req.body.actors,
+    genre: req.body.genre
   });
 
   films[req.params.id] = film;
@@ -36,7 +37,8 @@ filmRouter.delete('/:id', function(req, res) {
 filmRouter.post('/', function(req, res) {
   var newFilm = {
     title: req.body.title,
-    actors: req.body.actors
+    actors: req.body.actors,
+    genre: req.body.genre
   };
   var options = new Film(newFilm);
   films.push(options);
